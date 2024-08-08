@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - OCEANA</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #444;
+            background-color: #f0f8ff;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        body:hover {
+            background-color: #e0f2f1;
+        }
+
+        header {
+            background: linear-gradient(90deg, #0077b6, #0096c7);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            animation: slideDown 1s ease-in-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header nav ul li {
+            margin: 0 10px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ffdd57;
+            transform: scale(1.1);
+        }
+
+        .hero {
+            background-image: url('hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 0 20px;
+            animation: zoomIn 1.5s ease-in-out, pulse 3s infinite;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        main {
+            padding: 30px;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        main h2 {
+            color: #0077b6;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0077b6;
+            padding-bottom: 10px;
+            animation: underlinePulse 2s infinite;
+        }
+
+        @keyframes underlinePulse {
+            0% { border-bottom-color: #0077b6; }
+            50% { border-bottom-color: #ffdd57; }
+            100% { border-bottom-color: #0077b6; }
+        }
+
+        footer {
+            background: #023e8a;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background: #035aa7;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #ffdd57;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #e3f2fd;
+            padding: 40px 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .form-container h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0077b6;
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        @keyframes bounceIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-in-out;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #0077b6;
+            box-shadow: 0 0 5px rgba(0, 119, 182, 0.5);
+            transform: scale(1.02);
+            animation: pulseInput 1s ease-in-out infinite;
+        }
+
+        @keyframes pulseInput {
+            0% { box-shadow: 0 0 5px rgba(0, 119, 182, 0.5); }
+            50% { box-shadow: 0 0 10px rgba(0, 119, 182, 0.7); }
+            100% { box-shadow: 0 0 5px rgba(0, 119, 182, 0.5); }
+        }
+
+        label.active {
+            color: #0077b6;
+            transform: translateY(-20px);
+            font-size: 0.9rem;
+        }
+
+        .input {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        input:focus::placeholder, textarea:focus::placeholder {
+            color: transparent;
+        }
+
+        input[type="submit"] {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            animation: buttonPulse 2s infinite;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f8a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        input:invalid + .error-message,
+        textarea:invalid + .error-message {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OCEANA Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        Welcome to OCEANA!
+    </section>
+
+    <main>
+        <div class="form-container">
+            <h1>Contact Us</h1>
+            <form class="formbody" action="https://formspree.io/f/mwpeonew"
+            method="POST" on submit="validateForm(event)">
+                <div class="input">
+                    <label for="first-name" id="first-name-label">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required oninput="validateNameLength('first-name', 'first-name-error')" placeholder="First Name">
+                    <span id="first-name-error" class="error-message">Name must be at least 5 characters long.</span>
+                </div>
+
+                <div class="input">
+                    <label for="last-name" id="last-name-label">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required oninput="validateNameLength('last-name', 'last-name-error')" placeholder="Last Name">
+                    <span id="last-name-error" class="error-message">Name must be at least 5 characters long.</span>
+                </div>
+
+                <div class="input">
+                    <label for="email" id="email-label">E-mail Address:</label>
+                    <input type="email" id="email" name="email" required oninput="validateEmail()" placeholder="Enter your email">
+                    <span id="email-error" class="error-message">Please enter a valid email address.</span>
+                </div>
+
+                <div class="input">
+                    <label for="date" id="date-label">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <span id="date-error" class="error-message">Please enter a date.</span>
+                </div>
+
+                <div class="input">
+                    <label for="phone-number" id="phone-number-label">Phone Number:</label>
+                    <input type="text" id="phone-number" name="phone-number" required oninput="validatePhoneNumber()" placeholder="Phone No">
+                    <span id="phone-number-error" class="error-message">Phone number must be 10 digits.</span>
+                </div>
+
+                <div class="input">
+                    <label for="message" id="message-label">Message:</label>
+                    <textarea id="message" name="message" rows="4" required oninput="validateMessage()" placeholder="Enter your message"></textarea>
+                    <span id="message-error" class="error-message">Message must contain at least 50 alphabetic characters.</span>
+                </div>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 <a href="https://www.oceana.org" target="_blank">OCEANA</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function validateNameLength(fieldId, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            const label = document.getElementById(fieldId + '-label');
+            if (field.value.length < 5) {
+                error.textContent = "Name must be at least 5 characters long.";
+                label.classList.remove('active');
+            } else {
+                error.textContent = "";
+                label.classList.add('active');
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email").value;
+            const emailError = document.getElementById("email-error");
+            if (email === "" || !email.includes("@")) {
+                emailError.textContent = "Please enter a valid email address.";
+            } else {
+                emailError.textContent = "";
+            }
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumber = document.getElementById("phone-number").value;
+            const phoneNumberError = document.getElementById("phone-number-error");
+            const phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phoneNumber)) {
+                phoneNumberError.textContent = "Phone number must be 10 digits.";
+            } else {
+                phoneNumberError.textContent = "";
+            }
+        }
+
+        function validateMessage() {
+            const message = document.getElementById("message").value;
+            const messageError = document.getElementById("message-error");
+            const alphabetPattern = /[a-zA-Z]/;
+            const minAlphabets = 50;
+            let alphabetCount = 0;
+            for (let i = 0; i < message.length; i++) {
+                if (alphabetPattern.test(message[i])) {
+                    alphabetCount++;
+                }
+            }
+            if (alphabetCount < minAlphabets) {
+                messageError.textContent = "Message must contain at least 50 alphabetic characters.";
+            } else {
+                messageError.textContent = "";
+            }
+        }
+
+        function validateForm(event) {
+            let isValid = true;
+
+            // First Name validation
+            validateNameLength('first-name', 'first-name-error');
+            if (document.getElementById("first-name-error").textContent !== "") {
+                isValid = false;
+            }
+
+            // Last Name validation
+            validateNameLength('last-name', 'last-name-error');
+            if (document.getElementById("last-name-error").textContent !== "") {
+                isValid = false;
+            }
+
+            // Email validation
+            validateEmail();
+            if (document.getElementById("email-error").textContent !== "") {
+                isValid = false;
+            }
+
+            // Phone number validation
+            validatePhoneNumber();
+            if (document.getElementById("phone-number-error").textContent !== "") {
+                isValid = false;
+            }
+
+            // Message validation
+            validateMessage();
+            if (document.getElementById("message-error").textContent !== "") {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>
